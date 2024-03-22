@@ -5,10 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alphabet Clash</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Daisy Ui -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
 </head>
 
-<body>
+<body class="bg-[#010313] min-h-screen bg-[url('images/background.png')] bg-no-repeat bg-center">
+  <main>
+    <section class="h-screen gap-5 md:gap-14 flex flex-col justify-center items-center mx-2">
+      <h1 class="text-6xl md:text-9xl font-['anton'] text-white text-center">ALPHABET CLASH</h1>
+      <p class="text-xl font-['poppins'] font-medium text-white text-center">Unleash Your Keyboard Kung Fu : Press “Enter” to Play
+      </p>
+      <button
+        class="btn btn-md md:btn-lg bg-white hover:bg-white text-[#010313] border-none font-['poppins'] font-semibold text-md md:text-2xl rounded-lg px-8">Play
+        Now</button>
 
+    </section>
+  </main>
 </body>
 
 </html>
