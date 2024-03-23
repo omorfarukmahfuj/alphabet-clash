@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
@@ -21,26 +21,26 @@
 
 </head>
 
-<body class="bg-[#010313] min-h-screen bg-[url('images/background.png')] bg-no-repeat bg-center">
+<body class="bg-[#010313] h-screen bg-[url('images/background.png')] bg-no-repeat bg-center">
   <main>
 
     <!-- Home Screen -->
-    <section class="h-screen gap-5 md:gap-14 flex flex-col justify-center items-center mx-2">
+    <section id="home-screen" class="h-screen gap-5 md:gap-14 flex flex-col justify-center items-center mx-2">
       <h1 class="text-6xl md:text-9xl font-['anton'] text-white text-center">ALPHABET CLASH</h1>
       <p class="text-xl font-['poppins'] font-medium text-white text-center">Unleash Your Keyboard Kung Fu : Press
         “Enter” to Play
       </p>
-      <button
+      <button onclick="play()"
         class="btn btn-md md:btn-lg bg-white hover:bg-white text-[#010313] border-none font-['poppins'] font-semibold text-md md:text-2xl rounded-lg px-8">Play
         Now</button>
 
     </section>
 
     <!-- Playground Screen -->
-    <section class="hidden flex flex-col justify-center items-center gap-16">
+    <section id="playground-screen" class="hidden h-screen flex flex-col justify-center items-center gap-16">
       <!-- screen -->
       <div
-        class="artboard artboard-horizontal phone-6 border-[20px] rounded-2xl border-[#010313cc] bg-[#ffffffb3] mt-16">
+        class="artboard artboard-horizontal phone-6 border-8 md:border-[20px] rounded-2xl border-[#010313cc] bg-[#ffffffb3]">
         <div class="flex flex-col justify-center items-center h-full">
           <p class="font-['poppins'] font-medium text-lg text-white bg-[#2F2941] text-center px-7 rounded-b-xl pb-4">
             Don't
@@ -48,7 +48,7 @@
           </p>
 
           <div class="flex justify-center items-center h-full">
-            <p class="font-['poppins'] font-semibold text-9xl text-[#010313]">Y</p>
+            <p id="current-alphabet" class="font-['poppins'] font-semibold text-9xl text-[#010313]">Y</p>
           </div>
         </div>
       </div>
@@ -56,73 +56,77 @@
       <!-- keyboard -->
       <div>
         <div class="flex justify-center gap-1 my-1 w-full">
-          <kbd class="kbd">q</kbd>
-          <kbd class="kbd">w</kbd>
-          <kbd class="kbd">e</kbd>
-          <kbd class="kbd">r</kbd>
-          <kbd class="kbd">t</kbd>
-          <kbd class="kbd">y</kbd>
-          <kbd class="kbd">u</kbd>
-          <kbd class="kbd">i</kbd>
-          <kbd class="kbd">o</kbd>
-          <kbd class="kbd">p</kbd>
+          <kbd id="q" class="kbd">q</kbd>
+          <kbd id="w" class="kbd">w</kbd>
+          <kbd id="e" class="kbd">e</kbd>
+          <kbd id="r" class="kbd">r</kbd>
+          <kbd id="t" class="kbd">t</kbd>
+          <kbd id="y" class="kbd">y</kbd>
+          <kbd id="u" class="kbd">u</kbd>
+          <kbd id="i" class="kbd">i</kbd>
+          <kbd id="o" class="kbd">o</kbd>
+          <kbd id="p" class="kbd">p</kbd>
         </div>
         <div class="flex justify-center gap-1 my-1 w-full">
-          <kbd class="kbd">a</kbd>
-          <kbd class="kbd">s</kbd>
-          <kbd class="kbd">d</kbd>
-          <kbd class="kbd">f</kbd>
-          <kbd class="kbd">g</kbd>
-          <kbd class="kbd">h</kbd>
-          <kbd class="kbd">j</kbd>
-          <kbd class="kbd">k</kbd>
-          <kbd class="kbd">l</kbd>
+          <kbd id="a" class="kbd">a</kbd>
+          <kbd id="s" class="kbd">s</kbd>
+          <kbd id="d" class="kbd">d</kbd>
+          <kbd id="f" class="kbd">f</kbd>
+          <kbd id="g" class="kbd">g</kbd>
+          <kbd id="h" class="kbd">h</kbd>
+          <kbd id="j" class="kbd">j</kbd>
+          <kbd id="k" class="kbd">k</kbd>
+          <kbd id="l" class="kbd">l</kbd>
         </div>
         <div class="flex justify-center gap-1 my-1 w-full">
-          <kbd class="kbd">z</kbd>
-          <kbd class="kbd">x</kbd>
-          <kbd class="kbd">c</kbd>
-          <kbd class="kbd">v</kbd>
-          <kbd class="kbd">b</kbd>
-          <kbd class="kbd">n</kbd>
-          <kbd class="kbd">m</kbd>
-          <kbd class="kbd">/</kbd>
+          <kbd id="z" class="kbd">z</kbd>
+          <kbd id="x" class="kbd">x</kbd>
+          <kbd id="c" class="kbd">c</kbd>
+          <kbd id="v" class="kbd">v</kbd>
+          <kbd id="b" class="kbd">b</kbd>
+          <kbd id="n" class="kbd">n</kbd>
+          <kbd id="m" class="kbd">m</kbd>
+          <kbd id="/" class="kbd">/</kbd>
         </div>
       </div>
 
       <!-- life score -->
-      <div class="w-4/6 flex justify-between items-center">
+      <div class="w-4/6 flex flex-col md:flex-row justify-center md:justify-between items-center gap-y-4">
+        <!-- display life -->
         <button
           class="btn rounded-full bg-[#894189] hover:bg-[#894189] text-white bg-[url(images/btn-reflection.svg)] bg-no-repeat font-['inter'] font-medium text-xl px-9">
           Life
           <img src="images/life.svg" alt="">
-          <span>1</span>
+          <span id="current-life">4</span>
         </button>
 
+        <!-- display score -->
         <button
           class="btn rounded-full bg-[#360490] hover:bg-[#360490] text-white font-['inter'] font-medium text-xl px-9">
           Score
           <img src="images/score.svg" alt="">
-          <span>1</span>
+          <span id="current-score">0</span>
         </button>
       </div>
     </section>
 
     <!-- Score Screen -->
-    <section class="hidden flex justify-center items-center h-screen">
+    <section id="score-screen" class="hidden flex justify-center items-center h-screen">
       <div class="space-y-4 text-center px-12 py-11 rounded-2xl bg-[url('images/score-card-bg.png')] bg-no-repeat">
         <h1 class="font-['poppins'] text-6xl text-white">
           <span class="font-extrabold">Score</span>
           <span class="font-semibold"> : </span>
-          <span class="font-medium">14</span>
+          <span id="game-score" class="font-medium">14</span>
         </h1>
-        <button
+        <button onclick="play()"
           class="btn btn-md md:btn-lg bg-white hover:bg-white text-[#010313] border-none font-['poppins'] font-semibold text-md md:text-2xl rounded-lg px-8">Play
           Again</button>
         <p class="text-xl font-['poppins'] font-medium text-white text-center">Practice will make you a Pro</p>
       </div>
     </section>
   </main>
+  <script src="scripts/utility.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
 
 </html>
